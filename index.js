@@ -19,6 +19,6 @@ bot.on('message', (msg) => {
     var timeout = chatMap.get(chatId)
     clearTimeout(timeout)
   }
-  chatMap.set(chatId, setTimeout(notify(chatId), 5000))
+  chatMap.set(chatId, setTimeout(notify(chatId), 30000))
   // send a message to the chat acknowledging receipt of their message
 });
