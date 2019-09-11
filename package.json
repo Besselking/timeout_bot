@@ -8,5 +8,8 @@
     "start": "node index.js"
   },
   "author": "Marijn Besseling",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "node-telegram-bot-api": "^0.30.0"
+  }
 }
