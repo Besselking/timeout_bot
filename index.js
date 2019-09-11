@@ -6,13 +6,22 @@ const token = process.env.BOT_TOKEN;
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(token, {polling: true});
 
-// Listen for any kind of message. There are different kinds of
-// messages.
+var chatMap = new Map()
+
+function notify() {
+	bot.sendMessage(chatId, 'Whoo timeout over.')
+}
+
 bot.on('message', (msg) => {
   const chatId = msg.chat.id;
 
+  if (chatMap.has(chatId)) {
+    var timeout = chatMap.get(chatId)
+    clearTimeout(timeout)
+    timeout = setTimeout(notify, 3000)
+
+  } else {
+    chatMap.set(chatId, setTimeout(notify, 3000))
+  }
   // send a message to the chat acknowledging receipt of their message
-  setTimeout(() => {
-  	bot.sendMessage(chatId, 'Whoo timeout over.')
-  }, 3000)
 });
