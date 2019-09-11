@@ -9,7 +9,7 @@ const bot = new TelegramBot(token, {polling: true});
 var chatMap = new Map()
 
 function notify(chatId) {
-	bot.sendMessage(chatId, 'Whoo timeout over.')
+	return () => bot.sendMessage(chatId, 'Whoo timeout over.')
 }
 
 bot.on('message', (msg) => {
@@ -18,10 +18,10 @@ bot.on('message', (msg) => {
   if (chatMap.has(chatId)) {
     var timeout = chatMap.get(chatId)
     clearTimeout(timeout)
-    timeout = setTimeout(() => notify(chatId), 3000)
+    timeout = setTimeout(notify(chatId), 3000)
 
   } else {
-    chatMap.set(chatId, setTimeout(() => notify(chatId), 3000))
+    chatMap.set(chatId, setTimeout(notify(chatId), 3000))
   }
   // send a message to the chat acknowledging receipt of their message
 });
