@@ -1,0 +1,12 @@
+{
+  "name": "timeout_bot",
+  "version": "1.0.0",
+  "description": "Telegram Bot that sends a message after a specified amount of time of silence.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Marijn Besseling",
+  "license": "ISC"
+}
