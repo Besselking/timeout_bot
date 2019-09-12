@@ -25,6 +25,6 @@ bot.on('message', (msg) => {
 });
 
 http.createServer(function(req, resp) {
-  response.writeHead(200, {"Content-Type": "text/plain"})
-  response.end("This is a telegram bot not a website")
+  resp.writeHead(200, {"Content-Type": "text/plain"})
+  resp.end("This is a telegram bot not a website")
 }).listen(process.env.PORT)
