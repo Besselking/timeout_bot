@@ -1,4 +1,3 @@
-var http = require('http')
 const TelegramBot = require('node-telegram-bot-api');
 
 // replace the value below with the Telegram token you receive from @BotFather
@@ -24,7 +23,3 @@ bot.on('message', (msg) => {
   // send a message to the chat acknowledging receipt of their message
 });
 
-http.createServer(function(req, resp) {
-  resp.writeHead(200, {"Content-Type": "text/plain"})
-  resp.end("This is a telegram bot not a website")
-}).listen(process.env.PORT)
